@@ -1,9 +1,8 @@
 module.exports = {
 
   //QUANDO MIGRATION FOR EXECUTADA METODO UP
-  up: (queryInterface) => {
-   
-     //CRIA TABELA NO BANCO DE DADOS  ' USERS '
+    //CRIA TABELA NO BANCO DE DADOS  ' USERS '
+  up: (queryInterface,Sequelize) => {  
       return queryInterface.createTable('users', { 
      // COLUNAS 
       id: {
@@ -16,13 +15,13 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      email: {
+      email: {  
         type: Sequelize.STRING,
         allowNull: false,
         unique: true,   //NÃO PERMITE EMAIL REPETIDO
 
       },
-      password_has: {
+      password_hash: {
         type: Sequelize.STRING,
         allowNull: false,
       },
@@ -35,7 +34,7 @@ module.exports = {
         type: Sequelize.DATE,
         allowNull: false,
       },
-      update_at :{
+      updated_at :{
         type: Sequelize.DATE,// CAMPO QUE SALVA  A DATA DE UPATE
         allowNull: false,
       } ,     
